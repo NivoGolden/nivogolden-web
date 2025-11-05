@@ -860,6 +860,11 @@ h6 {
   transition: var(--transition);
 }
 
+/* --- Arreglo para el grosor del ícono de WhatsApp --- */
+.contact-icon .fa-whatsapp {
+  font-weight: 900; /* Forza el grosor 'solid' */
+}
+
 .contact-details h5 {
   color: var(--primary-color);
   margin-bottom: 0.5rem;
