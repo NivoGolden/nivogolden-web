@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Contenedores de productos
   const productosPerrosContainer = document.getElementById("productosPerros")
   const productosGatosContainer = document.getElementById("productosGatos")
+  const categoryTabsContainer = document.getElementById("categoryTabsContainer");
 
   // Contenedores de vistas (Pestaña Perros)
   const categoryGridPerros = document.getElementById("categoryGridPerros")
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (categoryGridPerros) categoryGridPerros.style.display = "flex"
     if (productosPerrosContainer) productosPerrosContainer.style.display = "none"
     if (backToCategoriesBtn) backToCategoriesBtn.style.display = "none"
+    if (categoryTabsContainer) categoryTabsContainer.style.display = "flex";
   }
 
   /* Muestra los productos de una categoría específica */
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (categoryGridPerros) categoryGridPerros.style.display = "none"
     if (productosPerrosContainer) productosPerrosContainer.style.display = "flex"
     if (backToCategoriesBtn) backToCategoriesBtn.style.display = "block"
+    if (categoryTabsContainer) categoryTabsContainer.style.display = "none";
 
     // Filtrar productos por categoría
     const allItems = productosPerrosContainer.querySelectorAll(".product-item")
@@ -54,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Filtrar productos en gatos y perros
-        const gatos = data.filter((p) => 
+        const gatos = data.filter((p) =>
           p.category && p.category.trim().toLowerCase() === "gato"
         )
-        const perros = data.filter((p) => 
+        const perros = data.filter((p) =>
           !p.category || p.category.trim().toLowerCase() !== "gato"
         )
 
@@ -87,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     products.forEach((p) => {
       const card = document.createElement("div")
       // product-item es la clase que usamos para filtrar
-      card.className = "col-lg-4 col-md-6 mb-4 product-item" 
+      card.className = "col-lg-4 col-md-6 mb-4 product-item"
       // Guardar categoría
       card.setAttribute("data-category", p.category ? p.category.trim().toLowerCase() : "")
 
@@ -133,12 +136,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabs = document.querySelectorAll('button[data-bs-toggle="pill"]')
     tabs.forEach((tab) => {
       tab.addEventListener("shown.bs.tab", (event) => {
-        // Si la pestaña que se acaba de mostrar es la de perros reiniciar vista de categorías
-        if (event.target.getAttribute("data-bs-target") === "#perros") {
-          showCategoriesView()
+
+        // Obtenemos el ID de la pestaña que se acaba de mostrar (ej: "#perros" o "#gatos")
+        const targetTab = event.target.getAttribute("data-bs-target");
+
+        if (targetTab === "#perros") {
+          // Si es "Para Perros", reiniciamos a la vista de categorías
+          showCategoriesView();
+
+        } else if (targetTab === "#gatos") {
+          // Si es "Para Gatos", que esté visible.
+          if (categoryTabsContainer) categoryTabsContainer.style.display = "flex";
         }
-      })
-    })
+
+      });
+    });
+
   }
 
   // --- Listeners para los botones ---
