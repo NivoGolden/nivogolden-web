@@ -8,7 +8,6 @@
     <!-- Etiquetas meta -->
     <meta name="description"
         content="Snacks y premios naturales para perros y gatos. 100% natural con colágeno y proteína para la salud dental de tu mascota.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="snacks naturales para perros, colágeno, carnaza, Nivo Golden">
     <meta property="og:title" content="Nivo Golden | Snacks naturales para perros">
     <meta property="og:description"
@@ -16,18 +15,35 @@
     <meta property="og:url" content="https://nivogolden.com">
     <meta property="og:type" content="website">
 
-    <!-- Bootstrap -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="img/img-logo-2.webp">
+
+    <!-- Preconnect CDNs para acelerar la carga -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    </noscript>
+    <!-- Font Awesome (Carga no bloqueante de renderizado) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Precargar img -->
-     <link rel="preload" as="image" href="img/img-hero-1.jpg">
+
+    <!-- Precargar imágenes del carrusel hero desde el inicio -->
+    <link rel="preload" as="image" href="img/img-hero-1.webp">
+    <link rel="preload" as="image" href="img/img-hero-2.webp">
+    <link rel="preload" as="image" href="img/img-hero-3.webp">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGE7JJ9L82"></script>
     <script>
@@ -44,9 +60,9 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <img src="img/img-logo.webp" alt="Nivo Golden" class="logo">
+                <img src="img/img-logo.webp" alt="Nivo Golden - Logo oficial" class="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Navegación de palanca">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -75,9 +91,9 @@
     <section id="home" class="hero-section">
         <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <!-- Slide 1 -->
@@ -139,10 +155,10 @@
                 </div>
             </div>
             <!-- Controles del carrusel -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" aria-label="Anterior">
                 <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" aria-label="Siguiente">
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
@@ -178,7 +194,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="nosotros-image">
-                        <img src="img/img-nosotros.webp" alt="Nosotros" class="img-fluid rounded">
+                        <img src="img/img-nosotros.webp" alt="Instalaciones y equipo de Nivo Golden en León, Guanajuato" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
@@ -204,21 +220,21 @@
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <div class="producto-card">
-                                        <img src="img/img-productos-perro-1.webp" alt="productos-perro-1" loading="lazy"
+                                        <img src="img/img-productos-perro-1.webp" alt="Caja con 2kg de Palitos Surtido para perro - Nivo Golden" loading="lazy"
                                             class="img-fluid">
                                         <h5>Caja con 2kg de Palitos Surtido</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="producto-card">
-                                        <img src="img/img-productos-perro-2.webp" alt="productos-perro-2" loading="lazy"
+                                        <img src="img/img-productos-perro-2.webp" alt="Mix Natural de Deshidratados para perro - Nivo Golden" loading="lazy"
                                             class="img-fluid">
                                         <h5>Mix Natural de Deshidratados</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="producto-card">
-                                        <img src="img/img-productos-perro-3.webp" alt="productos-perro-3" loading="lazy"
+                                        <img src="img/img-productos-perro-3.webp" alt="Pata de pollo deshidratada snack para perro - Nivo Golden" loading="lazy"
                                             class="img-fluid">
                                         <h5>Pata de pollo</h5>
                                     </div>
@@ -241,14 +257,14 @@
                             <div class="row justify-content-evenly">
                                 <div class="col-md-4 mb-3">
                                     <div class="producto-card">
-                                        <img src="img/img-productos-gato-1.webp" alt="productos-gato-1" loading="lazy"
+                                        <img src="img/img-productos-gato-1.webp" alt="Charal deshidratado snack natural para gato - Nivo Golden" loading="lazy"
                                             class="img-fluid">
                                         <h5>Charal deshidratado</h5>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="producto-card">
-                                        <img src="img/img-productos-gato-2.webp" alt="productos-gato-2" loading="lazy"
+                                        <img src="img/img-productos-gato-2.webp" alt="Premios de pescado para gato - Nivo Golden" loading="lazy"
                                             class="img-fluid">
                                         <h5>Premios de pescado</h5>
                                     </div>
@@ -272,30 +288,18 @@
                 <p class="section-subtitle">Respaldamos la calidad de nuestros productos</p>
             </div>
             <div class="row justify-content-center">
-                <!-- <div class="col-md-3 col-6 mb-4">
-                    <div class="certificacion-item text-center">
-                        <img src="img/img-cert-1.webp" alt="img-cert-1" loading="lazy" class="cert-logo">
-                        <h5>Certificación de Seguridad Alimentaria.</h5>
-                    </div>
-                </div> -->
                 <div class="col-md-3 col-6 mb-4">
                     <div class="certificacion-item text-center">
-                        <img src="img/img-cert-2.webp" alt="img-cert-2" loading="lazy" class="cert-logo">
+                        <img src="img/img-cert-2.webp" alt="Certificación de Calidad y Compromiso Orgullosamente Guanajuatenses" loading="lazy" class="cert-logo">
                         <h5>Calidad y compromiso en los productos. Orgullosamente guanajuatenses.</h5>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-4">
                     <div class="certificacion-item text-center">
-                        <img src="img/img-cert-5.png" alt="img-cert-3" loading="lazy" class="cert-logo" style="width: 40%;">
+                        <img src="img/img-cert-5.png" alt="Sello de Empresa dirigida y operada por mujeres" loading="lazy" class="cert-logo" style="width: 40%;">
                         <h5>Empresa dirigida y operada en su mayoría por mujeres.</h5>
                     </div>
                 </div>
-                <!-- <div class="col-md-3 col-6 mb-4">
-                    <div class="certificacion-item text-center">
-                        <img src="img/img-cert-4.webp" alt="img-cert-4" loading="lazy" class="cert-logo">
-                        <h5>Sistema de Inocuidad Alimentaria.</h5>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -403,6 +407,7 @@
                         </h4>
                         <div class="mini-mapa mb-3">
                             <iframe
+                                title="Ubicación de Nivo Golden en Google Maps"
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.0070955476585!2d-101.66428487845974!3d21.191877086899023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bb8e0fbddfe4f%3A0x19f6e2e42b87f5ed!2sNivo%20Golden%20by%20NIVO%20MANUFACTURA!5e0!3m2!1ses-419!2smx!4v1757143348285!5m2!1ses-419!2smx"
                                 width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen=""
                                 loading="lazy">
@@ -449,7 +454,7 @@
                             <a href="https://wa.me/524779227034" class="social-link d-flex align-items-center mb-2">
                                 <i class="fab fa-whatsapp fa-lg me-2"></i> WhatsApp
                             </a>
-                            <a href="https://www.tiktok.com/@nivogoldenbynivo?_t=ZS-90CzuSpGFXU&_r=1"
+                            <a href="https://www.tiktok.com/@nivogoldenbynivo"
                                 class="social-link d-flex align-items-center mb-2">
                                 <i class="fab fa-tiktok fa-lg me-2"></i> TikTok
                             </a>
@@ -469,11 +474,7 @@
                                 class="tienda-link d-flex align-items-center mb-2">
                                 <i class="fas fa-shopping-cart me-2"></i> Mercado Libre
                             </a>
-                            <!-- <a href="https://www.walmart.com.mx/ip/perros/caja-de-palitos-de-carnaza-surtido-2kg-nivo-golden/00085005737202?from=/search"
-                                class="tienda-link d-flex align-items-center mb-2">
-                                <i class="fas fa-store me-2"></i> Walmart
-                            </a> -->
-                            <a href="https://vt.tiktok.com/ZSHnNp1MxUuMn-xK5Er/"
+                            <a href="https://www.tiktok.com/@nivogoldenbynivo"
                                 class="tienda-link d-flex align-items-center mb-2">
                                 <i class="fab fa-tiktok fa-lg me-2"></i> TikTok
                             </a>
@@ -484,13 +485,12 @@
         </div>
     </section>
 
-
     <!-- FOOTER -->
     <footer class="footer py-4 bg-dark text-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-3">
-                    <img src="img/img-logo-4.webp" alt="Nivo Golden" class="footer-logo mb-3">
+                    <img src="img/img-logo-4.webp" alt="Nivo Golden - Logo en pie de página" class="footer-logo mb-3">
                     <p>Snacks naturales para mascotas desde León, Guanajuato.</p>
                 </div>
                 <div class="col-lg-2 mb-3">
@@ -499,6 +499,7 @@
                         <li><a href="#home" class="text-light">Inicio</a></li>
                         <li><a href="productos.html" class="text-light">Productos</a></li>
                         <li><a href="contacto.html" class="text-light">Contacto</a></li>
+                        <li><a href="privacidad.html" class="text-light">Aviso de Privacidad</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-3">
@@ -510,13 +511,13 @@
                 <div class="col-lg-3 mb-3">
                     <h6>Síguenos</h6>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/nivogolden/" class="text-light me-3"><i
+                        <a href="https://www.facebook.com/nivogolden/" class="text-light me-3" aria-label="Facebook"><i
                                 class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/nivogolden/" class="text-light me-3"><i
+                        <a href="https://www.instagram.com/nivogolden/" class="text-light me-3" aria-label="Instagram"><i
                                 class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://wa.me/524779227034" class="text-light me-3"><i
+                        <a href="https://wa.me/524779227034" class="text-light me-3" aria-label="WhatsApp"><i
                                 class="fab fa-whatsapp fa-lg"></i></a>
-                        <a href="https://vt.tiktok.com/ZSHnNp1MxUuMn-xK5Er/" class="text-light me-3"><i
+                        <a href="https://www.tiktok.com/@nivogoldenbynivo" class="text-light me-3" aria-label="TikTok"><i
                                 class="fab fa-tiktok fa-lg"></i></a>
                     </div>
                 </div>
@@ -534,7 +535,7 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/524779227034" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/524779227034" class="whatsapp-float" target="_blank" aria-label="Contacto vía WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

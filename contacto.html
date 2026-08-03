@@ -8,14 +8,27 @@
     <meta name="description"
         content="Contáctanos para cualquier duda sobre nuestros snacks naturales. Estamos en León, Guanajuato y te atendemos por WhatsApp, email y redes sociales.">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="img/img-logo-2.webp">
+
+    <!-- Preconnect CDNs -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    </noscript>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google tag (gtag.js) -->
@@ -34,9 +47,9 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="img/img-logo.webp" alt="Nivo Golden" class="logo">
+                <img src="img/img-logo.webp" alt="Nivo Golden - Logo oficial" class="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Navegación de palanca">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -79,8 +92,9 @@
                     <div class="contact-form-container">
                         <h3 class="mb-3">Envíanos un Mensaje</h3>
                         <!-- EMPIEZA EL FORM -->
-                        <form class="contact-form-full" id="contactForm" name="contacto" data-netlify="true"
-                            action="/gracias.html">
+                        <form class="contact-form-full" id="contactForm" name="contacto" method="POST"
+                            data-netlify="true" action="gracias.html">
+                            <input type="hidden" name="form-name" value="contacto">
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -108,10 +122,8 @@
                                 <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
                             </button>
                         </form>
-                        <p class="form-text small text-muted">
-                            Al enviar el formulario aceptas que Nivo Golden utilice tus datos para responder tu
-                            consulta.
-                            No compartimos tu información con terceros.
+                        <p class="form-text small text-muted mt-3">
+                            Al enviar el formulario aceptas que Nivo Golden utilice tus datos personales para responder tu consulta conforme a nuestro <a href="privacidad.html" class="text-primary text-decoration-underline">Aviso de Privacidad</a>. Asimismo, utilizamos Google Analytics para recopilar estadísticas básicas e anónimas de navegación. No compartimos tu información con terceros.
                         </p>
 
                     </div>
@@ -180,7 +192,7 @@
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ms-2">WhatsApp</span>
                                 </a>
-                                <a href="https://www.tiktok.com/@nivogoldenbynivo?_t=ZS-90CzuSpGFXU&_r=1"
+                                <a href="https://www.tiktok.com/@nivogoldenbynivo"
                                     class="social-link-contact tiktok">
                                     <i class="fab fa-tiktok"></i>
                                     <span class="ms-2">TikTok</span>
@@ -202,12 +214,7 @@
                                     <i class="fas fa-shopping-cart"></i>
                                     <span class="ms-2">Mercado Libre</span>
                                 </a>
-                                <!-- <a href="https://www.walmart.com.mx/ip/perros/caja-de-palitos-de-carnaza-surtido-2kg-nivo-golden/00085005737202?from=/search"
-                                    class="purchase-link walmart">
-                                    <i class="fas fa-store"></i>
-                                    <span class="ms-2">Walmart</span>
-                                </a> -->
-                                <a href="https://vt.tiktok.com/ZSHnNp1MxUuMn-xK5Er/" class="purchase-link tiktok">
+                                <a href="https://www.tiktok.com/@nivogoldenbynivo" class="purchase-link tiktok">
                                     <i class="fab fa-tiktok"></i>
                                     <span class="ms-2">TikTok</span>
                                 </a>
@@ -227,7 +234,7 @@
                     <h3 class="text-center mb-4">Nuestra Ubicación</h3>
                     <div class="map-container">
                         <div class="map-placeholder">
-                            <img src="img/img-mapa-2.webp" alt="Mapa León, Guanajuato" loading="lazy"
+                            <img src="img/img-mapa-2.webp" alt="Mapa de localización de Nivo Golden en León, Guanajuato" loading="lazy"
                                 class="img-fluid rounded">
                             <div class="map-overlay">
                                 <div class="map-info p-4">
@@ -252,7 +259,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-3">
-                    <img src="img/img-logo-4.webp" alt="Nivo Golden" class="footer-logo mb-3">
+                    <img src="img/img-logo-4.webp" alt="Nivo Golden - Logo en pie de página" class="footer-logo mb-3">
                     <p>Snacks naturales para mascotas desde León, Guanajuato.</p>
                 </div>
                 <div class="col-lg-2 mb-3">
@@ -261,6 +268,7 @@
                         <li><a href="index.html" class="text-light">Inicio</a></li>
                         <li><a href="productos.html" class="text-light">Catálogo</a></li>
                         <li><a href="contacto.html" class="text-light">Contacto</a></li>
+                        <li><a href="privacidad.html" class="text-light">Aviso de Privacidad</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-3">
@@ -272,13 +280,13 @@
                 <div class="col-lg-3 mb-3">
                     <h6>Síguenos</h6>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/nivogolden/" class="text-light me-3"><i
+                        <a href="https://www.facebook.com/nivogolden/" class="text-light me-3" aria-label="Facebook"><i
                                 class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/nivogolden/" class="text-light me-3"><i
+                        <a href="https://www.instagram.com/nivogolden/" class="text-light me-3" aria-label="Instagram"><i
                                 class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://wa.me/524779227034" class="text-light me-3"><i
+                        <a href="https://wa.me/524779227034" class="text-light me-3" aria-label="WhatsApp"><i
                                 class="fab fa-whatsapp fa-lg"></i></a>
-                        <a href="https://vt.tiktok.com/ZSHnNp1MxUuMn-xK5Er/" class="text-light me-3"><i
+                        <a href="https://www.tiktok.com/@nivogoldenbynivo" class="text-light me-3" aria-label="TikTok"><i
                                 class="fab fa-tiktok fa-lg"></i></a>
                     </div>
                 </div>
@@ -296,14 +304,15 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/524779227034" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/524779227034" class="whatsapp-float" target="_blank" aria-label="Contacto vía WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS (se eliminó contacto.js) -->
+    <!-- Custom JS -->
     <script src="script.js"></script>
+    <script src="contacto.js"></script>
 </body>
 
 </html>
