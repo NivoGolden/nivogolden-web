@@ -78,15 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(element)
   })
 
-  // FORMULARIO DE CONTACTO: Manejo selector e interacción
-  const contactForm = document.querySelector("#contactForm, .contact-form-full, .contacto-form")
-  if (contactForm && !contactForm.hasAttribute("data-netlify")) {
+  // FORMULARIO DE CONTACTO: Manejo simple
+  const contactForm = document.querySelector(".contacto-form")
+  if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault()
 
       // Obtener datos del formulario
-      const name = this.querySelector('input[name="nombre"], input[type="text"]').value
-      const email = this.querySelector('input[name="email"], input[type="email"]').value
+      const name = this.querySelector('input[type="text"]').value
+      const email = this.querySelector('input[type="email"]').value
       const message = this.querySelector("textarea").value
 
       // Validación simple
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showNotification("¡Mensaje enviado correctamente! Te contactaremos pronto.", "success")
         this.reset()
       } else {
-        showNotification("Por favor completa todos los campos obligatorios.", "error")
+        showNotification("Por favor completa todos los campos.", "error")
       }
     })
   }
