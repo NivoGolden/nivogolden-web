@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const SHEET_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWldGqHxXEmTSphqY5YaOpsPA8uHbGB20lh-Gc7mlOWMNY7dZqMZUGY6upXBnbKzTHEOI9iQRblKHv/pub?output=csv"
 
+  // Categorías y productos del Sheets que no se muestran en el catálogo.
+  // Comparación sin mayúsculas ni espacios extra.
+  const CATEGORIAS_OCULTAS = ["gato", "snacks gourmet"]
+  const PRODUCTOS_OCULTOS = ["palitos saborizados"]
+  const normalizar = (texto) => (texto || "").trim().toLowerCase()
+
   // Contenedores de productos
   const productosPerrosContainer = document.getElementById("productosPerros")
   const productosGatosContainer = document.getElementById("productosGatos")
@@ -50,7 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     header: true,
     complete: (results) => {
       try {
-        const data = results.data.filter((row) => row.name && row.image)
+        const data = results.data.filter((row) =>
+          row.name && row.image &&
+          !CATEGORIAS_OCULTAS.includes(normalizar(row.category)) &&
+          !PRODUCTOS_OCULTOS.includes(normalizar(row.name))
+        )
 
         if (!data || data.length === 0) {
           throw new Error("No se encontraron productos")
@@ -121,12 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupTabLogic() {
     // Lógica de hash #
     const hash = window.location.hash
-    if (hash === '#gatos') {
-      const tabButton = document.querySelector('button[data-bs-target="#gatos"]')
-      if (tabButton) {
-        const tab = new window.bootstrap.Tab(tabButton)
-        tab.show()
-      }
+    const tabGatos = document.querySelector('button[data-bs-target="#gatos"]')
+    if (hash === '#gatos' && tabGatos) {
+      const tab = new window.bootstrap.Tab(tabGatos)
+      tab.show()
     } else {
       // Si no es #gatos, es #perros o nada. Mostrar categorías de perros.
       showCategoriesView()
