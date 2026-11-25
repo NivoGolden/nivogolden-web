@@ -14,10 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Tarjetas de categoría
   const categoryCards = document.querySelectorAll(".category-card-custom")
 
+  // Categoría abierta (null = vista de categorías). Se usa para re-filtrar
+  // si el usuario abre una categoría antes de que terminen de cargar los productos.
+  let categoriaActual = null
+
+  // Indicador de carga mientras llegan los productos del Google Sheets
+  const CARGANDO_HTML = `
+    <div class="col-12 text-center py-5 productos-cargando" role="status">
+      <div class="spinner-border" aria-hidden="true"></div>
+      <p class="mt-3 mb-0">Cargando productos…</p>
+    </div>`
+  if (productosPerrosContainer) productosPerrosContainer.innerHTML = CARGANDO_HTML
+  if (productosGatosContainer) productosGatosContainer.innerHTML = CARGANDO_HTML
+
   // --- MANEJO DE VISTAS (SOLO PARA PERROS) ---
 
   /* Muestra la vista de categorías y oculta los productos */
   function showCategoriesView() {
+    categoriaActual = null
     if (categoryGridPerros) categoryGridPerros.style.display = "flex"
     if (productosPerrosContainer) productosPerrosContainer.style.display = "none"
     if (backToCategoriesBtn) backToCategoriesBtn.style.display = "none"
@@ -26,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Muestra los productos de una categoría específica */
   function showProductsView(category) {
+    categoriaActual = category
     if (categoryGridPerros) categoryGridPerros.style.display = "none"
     if (productosPerrosContainer) productosPerrosContainer.style.display = "flex"
     if (backToCategoriesBtn) backToCategoriesBtn.style.display = "block"
@@ -43,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   }
+
+  // Configurar pestañas y hash URL desde el inicio (no esperar a los productos)
+  setupTabLogic()
 
   // --- Carga de Datos (PapaParse) ---
   Papa.parse(SHEET_URL, {
@@ -68,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
         renderProducts(perros, productosPerrosContainer)
         renderProducts(gatos, productosGatosContainer)
 
-        // Configurar lógica de pestañas y hash URL
-        setupTabLogic()
+        // Si ya habían abierto una categoría mientras cargaba, mostrar solo esa
+        if (categoriaActual) showProductsView(categoriaActual)
 
       } catch (err) {
         mostrarError(err.message)
@@ -172,9 +190,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // posible error
   function mostrarError(mensaje) {
-    const errorContainer = productosPerrosContainer || document.querySelector('.productos-main .container')
-    if (errorContainer) {
-      errorContainer.innerHTML = `<div class="alert alert-danger col-12">${mensaje}</div>`
+    const contenedores = [productosPerrosContainer, productosGatosContainer].filter(Boolean)
+    if (contenedores.length === 0) {
+      const fallback = document.querySelector('.productos-main .container')
+      if (fallback) contenedores.push(fallback)
     }
+    contenedores.forEach((c) => {
+      c.innerHTML = `<div class="alert alert-danger col-12">${mensaje}</div>`
+    })
   }
 })

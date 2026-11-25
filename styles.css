@@ -245,24 +245,28 @@ h6 {
   flex-direction: column;
 }
 
+.productos-section .producto-card {
+  height: 100%;
+}
+
+.productos-section .producto-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
 .productos-section .producto-card h5 {
   margin-top: auto;
+  font-size: 1.15rem;
 }
 
-/* Evita que nombres largos ("Deshidratados") se salgan de tarjetas angostas */
-@media (min-width: 992px) and (max-width: 1399.98px) {
-  .productos-section .producto-card {
-    padding: 1rem 0.5rem;
-  }
-
-  .productos-section .producto-card h5 {
-    font-size: 1.1rem;
-  }
+/* Indicador de carga del catálogo */
+.productos-cargando .spinner-border {
+  color: var(--primary-color);
 }
 
-.productos-section .producto-card h5 {
-  hyphens: manual;
-  overflow-wrap: anywhere;
+.productos-cargando p {
+  color: var(--text-light, #6c757d);
 }
 
 .producto-card:hover {
