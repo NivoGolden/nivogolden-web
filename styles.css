@@ -249,6 +249,22 @@ h6 {
   margin-top: auto;
 }
 
+/* Evita que nombres largos ("Deshidratados") se salgan de tarjetas angostas */
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .productos-section .producto-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .productos-section .producto-card h5 {
+    font-size: 1.1rem;
+  }
+}
+
+.productos-section .producto-card h5 {
+  hyphens: manual;
+  overflow-wrap: anywhere;
+}
+
 .producto-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow);
